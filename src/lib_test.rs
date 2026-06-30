@@ -25,7 +25,10 @@ fn video_task_endpoint_can_include_id() {
 #[test]
 fn auto_model_is_rejected() {
     let error = validate_model("Auto", ModelKind::Text).unwrap_err();
-    assert!(error.to_string().contains("Auto mode is not supported"));
+    assert_eq!(
+        error.to_string(),
+        "Auto mode is not supported by these Ark Plan endpoints; choose a concrete model"
+    );
 }
 
 #[test]
@@ -36,7 +39,10 @@ fn listed_text_model_is_accepted() {
 #[test]
 fn wrong_kind_is_rejected() {
     let error = validate_model("doubao-seedream-5.0-lite", ModelKind::Text).unwrap_err();
-    assert!(error.to_string().contains("unsupported Text"));
+    assert_eq!(
+        error.to_string(),
+        "unsupported Text model/resource id: doubao-seedream-5.0-lite"
+    );
 }
 
 #[test]
