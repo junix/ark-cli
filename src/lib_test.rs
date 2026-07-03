@@ -81,3 +81,31 @@ fn config_overrides_file_with_cli_values() {
     assert_eq!(config.api_key.as_deref(), Some("from-cli"));
     assert_eq!(config.model.as_deref(), Some("doubao-seed-2.0-code"));
 }
+
+#[test]
+fn append_query_params_empty_returns_url_unchanged() {
+    let url = "https://example.com/api".to_string();
+    assert_eq!(append_query_params(url.clone(), &[]), url);
+}
+
+#[test]
+fn append_query_params_single_param() {
+    let params = [("page_num".to_string(), "1".to_string())];
+    assert_eq!(
+        append_query_params("https://example.com/api".to_string(), &params),
+        "https://example.com/api?page_num=1"
+    );
+}
+
+#[test]
+fn append_query_params_multiple_params_joined_with_amp() {
+    let params = [
+        ("page_num".to_string(), "1".to_string()),
+        ("page_size".to_string(), "20".to_string()),
+        ("filter.status".to_string(), "succeeded".to_string()),
+    ];
+    assert_eq!(
+        append_query_params("https://example.com/api".to_string(), &params),
+        "https://example.com/api?page_num=1&page_size=20&filter.status=succeeded"
+    );
+}

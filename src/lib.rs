@@ -445,7 +445,7 @@ fn handle_video(cli: &Cli, config: &AppConfig, command: &VideoCommand) -> Result
             task_id,
             model,
         } => {
-            let mut url = endpoint_url(
+            let url = endpoint_url(
                 config.base_url_for(Protocol::Openai),
                 Endpoint::VideoTasks,
                 None,
@@ -467,15 +467,7 @@ fn handle_video(cli: &Cli, config: &AppConfig, command: &VideoCommand) -> Result
                 validate_model(model, ModelKind::Video)?;
                 query.push(("filter.model".to_string(), model.clone()));
             }
-            if !query.is_empty() {
-                let query = query
-                    .into_iter()
-                    .map(|(key, value)| format!("{key}={value}"))
-                    .collect::<Vec<_>>()
-                    .join("&");
-                url.push('?');
-                url.push_str(&query);
-            }
+            let url = append_query_params(url, &query);
             send_url(
                 cli,
                 config,
@@ -730,6 +722,21 @@ fn endpoint_url(base_url: &str, endpoint: Endpoint, task_id: Option<&str>) -> St
             url
         }
     }
+}
+
+fn append_query_params(url: String, params: &[(String, String)]) -> String {
+    if params.is_empty() {
+        return url;
+    }
+    let query = params
+        .iter()
+        .map(|(key, value)| format!("{key}={value}"))
+        .collect::<Vec<_>>()
+        .join("&");
+    let mut url = url;
+    url.push('?');
+    url.push_str(&query);
+    url
 }
 
 fn protocol_for_endpoint(endpoint: Endpoint) -> Protocol {
