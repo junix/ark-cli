@@ -20,7 +20,8 @@ const TTS_UNIDIRECTIONAL_WS_URL: &str =
 #[command(
     name = "ark-cli",
     version,
-    about = "Volcengine Ark Agent/Coding Plan CLI"
+    about = "Volcengine Ark Agent/Coding Plan CLI",
+    after_help = concat!("Source: ", env!("CARGO_MANIFEST_DIR"))
 )]
 pub struct Cli {
     /// TOML or JSON config file. Values can also come from ARK_* env vars.
