@@ -530,6 +530,15 @@ fn send_url(
     }
     let client = Client::new();
     let request = client.request(method.clone(), &url);
+    // 归因 UA（dsh attribution 语义）：版本读包元数据，每个 provider 请求携带。
+    let request = request.header(
+        "user-agent",
+        concat!(
+            "ark-cli/",
+            env!("CARGO_PKG_VERSION"),
+            " (+https://github.com/junix/ark-cli)"
+        ),
+    );
     let request = apply_auth(request, protocol, api_key);
     let request = if method == Method::GET || method == Method::DELETE {
         request
