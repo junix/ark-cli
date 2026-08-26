@@ -1,0 +1,152 @@
+{
+  "schema_version": "repository-architecture-infographic/v1",
+  "meta": {
+    "project": "ark-cli-rs",
+    "snapshot": "9f71afd55",
+    "generated": "2026-08-26",
+    "language": "zh-CN",
+    "audience": "新贡献者、架构评审者与下游集成方",
+    "thesis": "把仓库的真实入口、实现分区、可执行用法与验证证据放在一条可回查的阅读路径上。",
+    "canonical_source": "docs/infographics/architecture.svg"
+  },
+  "narrative": {
+    "reader_question": "ark-cli-rs 的代码从哪里进入、由哪些分区构成、怎样运行并如何验证？",
+    "order": [
+      "项目指纹",
+      "架构地形",
+      "使用路径",
+      "规模与依赖",
+      "验证与溯源"
+    ],
+    "inference_policy": "文件、计数、命令与依赖是仓库事实；职责名称仅按路径命名归类，均显式标注为推断。"
+  },
+  "sources": {
+    "readme": "README.md",
+    "readme_excerpt": [
+      "Rust CLI for Volcengine Ark Agent/Coding Plan endpoints.",
+      "bash export ARKAPIKEY=... ark-cli list --kind text ark-cli env --tool anthropic --model doubao-seed-2.0-code ark-cli chat --model doubao-seed-2.0-code --message \"hello\" ark-cli image --model doubao-seedream-5.0-lite --prompt \"a clean icon\" ark-cli video create --model doubao-seedance-2.0-fast --prompt \"a sunrise time-lapse\" ark-cli tts --text \"hello\" --dryru"
+    ],
+    "manifests": [
+      "Cargo.toml",
+      "justfile"
+    ],
+    "tracked_file_formula": "git ls-files，排除构建/依赖目录",
+    "line_formula": "逐个已跟踪源码文件统计非空文本行；不等同于语句数或复杂度",
+    "component_formula": "按源码路径首个职责分区聚合；角色名由路径关键词推断",
+    "entrypoint_formula": "按常见入口文件名与 bin/cmd/cli/app 路径定位候选；路径存在是事实，入口职责仍需源码确认"
+  },
+  "facts": {
+    "description": "Rust CLI for Volcengine Ark Agent/Coding Plan endpoints.",
+    "tracked_files": 10,
+    "source_files": 4,
+    "source_nonblank_lines": 1433,
+    "languages": [
+      {
+        "name": "Rust",
+        "files": 4,
+        "nonblank_lines": 1433,
+        "share": 1.0
+      }
+    ],
+    "entrypoints": [
+      "src/main.rs",
+      "src/lib.rs"
+    ],
+    "components": [
+      {
+        "id": "component-1",
+        "label": "src/lib",
+        "role": "核心语义",
+        "file_count": 1,
+        "nonblank_lines": 856,
+        "examples": [
+          "src/lib.rs"
+        ]
+      },
+      {
+        "id": "component-2",
+        "label": "src/lib_test",
+        "role": "核心语义",
+        "file_count": 1,
+        "nonblank_lines": 559,
+        "examples": [
+          "src/lib_test.rs"
+        ]
+      },
+      {
+        "id": "component-3",
+        "label": "build",
+        "role": "实现分区",
+        "file_count": 1,
+        "nonblank_lines": 12,
+        "examples": [
+          "build.rs"
+        ]
+      },
+      {
+        "id": "component-4",
+        "label": "src/main",
+        "role": "入口与编排",
+        "file_count": 1,
+        "nonblank_lines": 6,
+        "examples": [
+          "src/main.rs"
+        ]
+      }
+    ],
+    "static_edges": [],
+    "dependencies": [
+      "anyhow",
+      "clap",
+      "reqwest",
+      "serde",
+      "serde_json",
+      "toml"
+    ],
+    "commands": [
+      "just build",
+      "just test",
+      "just install",
+      "just default",
+      "export ARK_API_KEY=...",
+      "ark-cli list --kind text",
+      "ark-cli env --tool anthropic --model doubao-seed-2.0-code",
+      "ark-cli chat --model doubao-seed-2.0-code --message \"hello\""
+    ],
+    "test_files": 1,
+    "test_examples": [
+      "src/lib_test.rs"
+    ],
+    "manifest_count": 2,
+    "largest_files": [
+      {
+        "path": "src/lib.rs",
+        "language": "Rust",
+        "lines": 903,
+        "nonblank_lines": 856,
+        "group": "src"
+      },
+      {
+        "path": "src/lib_test.rs",
+        "language": "Rust",
+        "lines": 613,
+        "nonblank_lines": 559,
+        "group": "src"
+      },
+      {
+        "path": "build.rs",
+        "language": "Rust",
+        "lines": 12,
+        "nonblank_lines": 12,
+        "group": "build"
+      },
+      {
+        "path": "src/main.rs",
+        "language": "Rust",
+        "lines": 6,
+        "nonblank_lines": 6,
+        "group": "src"
+      }
+    ]
+  }
+}
