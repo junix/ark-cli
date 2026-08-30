@@ -13,9 +13,9 @@
 <circle id="source-orbit" cx="1742" cy="184" r="104" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
 <text x="1742" y="175" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="46" font-weight="750" text-anchor="middle">4</text>
 <text x="1742" y="215" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="middle">源码文件</text>
-<text x="1908" y="330" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">快照 5e14b2a48 · 生成 2026-08-30</text>
+<text x="1908" y="330" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">快照 18bee7afc · 生成 2026-08-30</text>
 <rect x="78" y="298" width="195" height="48" rx="24" fill="#E9F0FE"/>
-<text x="175.5" y="331" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">17 tracked files</text>
+<text x="175.5" y="331" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">18 tracked files</text>
 <rect x="287" y="298" width="154" height="48" rx="24" fill="#E2F4F1"/>
 <text x="364.0" y="331" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">1 test files</text>
 <rect x="455" y="298" width="144" height="48" rx="24" fill="#FAEEDB"/>
@@ -40,11 +40,11 @@
 <circle id="component-3" cx="1495" cy="1026" r="31" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
 <text x="1495" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="750" text-anchor="middle">03</text>
 <text id="component-label-1" x="505" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="505" dy="0">CLI 核心实现（src/lib.rs</tspan><tspan x="505" dy="27.5">）</tspan></text>
-<text x="505" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1 files · 856L</text>
+<text x="505" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1f · 856L</text>
 <text id="component-label-2" x="1000" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1000" dy="0">集成测试（src/lib_test.r</tspan><tspan x="1000" dy="27.5">s）</tspan></text>
-<text x="1000" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1 files · 559L</text>
+<text x="1000" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1f · 559L</text>
 <text id="component-label-3" x="1495" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1495" dy="0">构建脚本（build.rs）</tspan></text>
-<text x="1495" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">实现分区 · 1 files · 12L</text>
+<text x="1495" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">实现分区 · 1f · 12L</text>
 <rect id="architecture-caveat" x="78" y="1238" width="1844" height="56" rx="14" fill="#FFFFFF" stroke="#D7DFE9" stroke-width="2"/>
 <text x="100" y="1274" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="start">读图规则：横轴蓝线 = 证据导航顺序；弧线 = 静态导入；“职责”文字 = 路径命名推断；静态引用 ≠ 运行时顺序。</text>
 <text x="76" y="1356" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">03</text>
@@ -79,11 +79,11 @@
 <text x="76" y="1902" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">04</text>
 <text x="146" y="1904" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">规模、热点与外部边界</text>
 <text x="146" y="1946" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">条形长度编码非空源码行；它描述阅读成本，不代表业务重要性。</text>
-<text x="82" y="2010" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">CLI 核心实现（src/lib.rs）</text>
+<text x="82" y="2010" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">CLI 核心实现（src/lib.r…</text>
 <rect x="382" y="1991" width="540" height="25" rx="12" fill="#E2E8F1"/>
 <rect id="component-bar-1" x="382" y="1991" width="540" height="25" rx="12" fill="#137B73"/>
 <text x="1012" y="2012" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">856</text>
-<text x="82" y="2068" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">集成测试（src/lib_test.rs）</text>
+<text x="82" y="2068" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">集成测试（src/lib_test.…</text>
 <rect x="382" y="2049" width="540" height="25" rx="12" fill="#E2E8F1"/>
 <rect id="component-bar-2" x="382" y="2049" width="353" height="25" rx="12" fill="#245DCC"/>
 <text x="1012" y="2070" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">559</text>
@@ -113,10 +113,10 @@
 <text x="1060" y="2380" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• Cargo.toml</text>
 <text x="1060" y="2414" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• justfile</text>
 <text x="82" y="2546" fill="#A33D57" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">最近提交</text>
-<text x="82" y="2584" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-29 · docs: 更新架构文档</text>
-<text x="82" y="2618" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-26 · docs: relocate architecture infographic to docs/infographics</text>
-<text x="82" y="2652" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-23 · docs: add architecture visualizations</text>
+<text x="82" y="2584" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-30 · docs(infographics): 刷新架构信息图 v2 — 现势证据、静态导入布线与自适应版式</text>
+<text x="82" y="2618" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-29 · docs: 更新架构文档</text>
+<text x="82" y="2652" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-26 · docs: relocate architecture infographic to docs/infographics</text>
 <rect id="provenance-band" x="46" y="2736" width="1908" height="64" rx="20" fill="#172330"/>
-<text x="78" y="2777" fill="#FFFFFF" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">来源：Git 5e14b2a48 · README.md · 2 manifests · 1 test files</text>
+<text x="78" y="2777" fill="#FFFFFF" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">来源：Git 18bee7afc · README.md · 2 manifests · 1 test files</text>
 <text x="1922" y="2777" fill="#E2ECFB" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="end">事实与推断分色 · 生成值见 architecture.source.json</text>
 </svg>

@@ -1,7 +1,7 @@
 {
   "schema_version": "infographic-render/v2",
   "project": "ark-cli-rs",
-  "snapshot": "5e14b2a48",
+  "snapshot": "18bee7afc",
   "canonical_source": "architecture.svg",
   "semantic_evidence": "architecture.source.json",
   "dimensions": {
@@ -16,24 +16,24 @@
   },
   "artifacts": {
     "architecture.svg": {
-      "sha256": "f363b12b2816ca5edfd165ae7786efcd16c946ecfd8d9fb946a0c473cc9ced2d",
-      "bytes": 18524
+      "sha256": "e4e2a05d899873dfc0b75b0a31508c21e675c72fba183b18e1a1e5d46d001411",
+      "bytes": 18569
     },
     "architecture.png": {
-      "sha256": "24fdb6954d74cd53f1bd6646859760893ff512e6aca030286c88fb4239d5fbaa",
-      "bytes": 850848
+      "sha256": "87308d010f52db2d785b73684e96f252468bb96704dc3a51350cff5231a1d9cd",
+      "bytes": 861535
     },
     "architecture.pdf": {
-      "sha256": "1d3c3d2b62d557e43ac67f070127ba29c4da51fb86f02d38c2ef55ae2ff20de7",
-      "bytes": 732408
+      "sha256": "6a190fbe2232db33d4f62478f5cc0f07a1c41fcd741399238363014a476c1241",
+      "bytes": 747170
     },
     "architecture.lint.png": {
-      "sha256": "cbec6377fe436ebcebdd505ddd11530120967527e3db52aa1250521c1e890d57",
-      "bytes": 163485
+      "sha256": "ff1a7a4cb978cd4a0d3a438d7be94dac5a14c70cec11ae96d9f04fa25fac7614",
+      "bytes": 165319
     },
     "architecture.source.json": {
-      "sha256": "c6744ff6dad35895f30635ce1220d097c5eaa74bdc9d52b35af7ac6663d1a4ee",
-      "bytes": 5208
+      "sha256": "14c8c397f0ca17205a07fb38d17335e3af82b880c3ece9575baabb18865e3ddf",
+      "bytes": 5271
     }
   },
   "renderer": {
@@ -43,7 +43,7 @@
   },
   "svg_lint": {
     "tool": "svg-linter 0.1.0",
-    "input_sha256": "f363b12b2816ca5edfd165ae7786efcd16c946ecfd8d9fb946a0c473cc9ced2d",
+    "input_sha256": "e4e2a05d899873dfc0b75b0a31508c21e675c72fba183b18e1a1e5d46d001411",
     "catalog": {
       "schema_version": "svg-linter.catalog/v1",
       "catalog_version": "6",

@@ -22,7 +22,7 @@
 - manifests：`Cargo.toml`, `justfile`
 - 源码规模：4 个源码文件、1433 个非空文本行
 - 测试边界：1 个路径命中测试规则的已跟踪文件
-- 最近提交：2026-08-29 docs: 更新架构文档; 2026-08-26 docs: relocate architecture infographic to docs/infographics; 2026-08-23 docs: add architecture visualizations
+- 最近提交：2026-08-30 docs(infographics): 刷新架构信息图 v2 — 现势证据、静态导入布线与自适应版式; 2026-08-29 docs: 更新架构文档; 2026-08-26 docs: relocate architecture infographic to docs/infographics
 - 计算口径：逐个已跟踪源码文件统计非空文本行；不等同于语句数或复杂度
 - 推断边界：文件、计数、命令、依赖与最近提交是仓库事实；职责名称仅按路径命名归类，均显式标注为推断。
 
