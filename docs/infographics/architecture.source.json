@@ -1,13 +1,14 @@
 {
-  "schema_version": "repository-architecture-infographic/v1",
+  "schema_version": "repository-architecture-infographic/v2",
   "meta": {
     "project": "ark-cli-rs",
-    "snapshot": "9f71afd55",
-    "generated": "2026-08-26",
+    "snapshot": "5e14b2a48",
+    "generated": "2026-08-30",
     "language": "zh-CN",
     "audience": "新贡献者、架构评审者与下游集成方",
-    "thesis": "把仓库的真实入口、实现分区、可执行用法与验证证据放在一条可回查的阅读路径上。",
-    "canonical_source": "docs/infographics/architecture.svg"
+    "thesis": "把仓库的真实入口、实现分区、真实依赖与验证证据放在一条可回查的阅读路径上。",
+    "canonical_source": "docs/infographics/architecture.svg",
+    "overrides": "docs/infographics/overrides.json"
   },
   "narrative": {
     "reader_question": "ark-cli-rs 的代码从哪里进入、由哪些分区构成、怎样运行并如何验证？",
@@ -18,13 +19,13 @@
       "规模与依赖",
       "验证与溯源"
     ],
-    "inference_policy": "文件、计数、命令与依赖是仓库事实；职责名称仅按路径命名归类，均显式标注为推断。"
+    "inference_policy": "文件、计数、命令、依赖与最近提交是仓库事实；职责名称仅按路径命名归类，均显式标注为推断。"
   },
   "sources": {
     "readme": "README.md",
     "readme_excerpt": [
-      "Rust CLI for Volcengine Ark Agent/Coding Plan endpoints.",
-      "bash export ARKAPIKEY=... ark-cli list --kind text ark-cli env --tool anthropic --model doubao-seed-2.0-code ark-cli chat --model doubao-seed-2.0-code --message \"hello\" ark-cli image --model doubao-seedream-5.0-lite --prompt \"a clean icon\" ark-cli video create --model doubao-seedance-2.0-fast --prompt \"a sunrise time-lapse\" ark-cli tts --text \"hello\" --dryru"
+      "bash export ARKAPIKEY=... ark-cli list --kind text ark-cli env --tool anthropic --model doubao-seed-2.0-code ark-cli chat --model doubao-seed-2.0-code --message \"hello\" ark-cli image --model doubao-seedream-5.0-lite --prompt \"a clean icon\" ark-cli video create --model doubao-seedance-2.0-fast --prompt \"a sunrise time-lapse\" ark-cli tts --text \"hello\" --dryru",
+      "toml apikey = \"...\" protocol = \"openai\" model = \"doubao-seed-2.0-code\" baseurl = \"https://ark.cn-beijing.volces.com/api/plan/v3\" resourceid = \"seed-tts-2.0\""
     ],
     "manifests": [
       "Cargo.toml",
@@ -33,11 +34,12 @@
     "tracked_file_formula": "git ls-files，排除构建/依赖目录",
     "line_formula": "逐个已跟踪源码文件统计非空文本行；不等同于语句数或复杂度",
     "component_formula": "按源码路径首个职责分区聚合；角色名由路径关键词推断",
-    "entrypoint_formula": "按常见入口文件名与 bin/cmd/cli/app 路径定位候选；路径存在是事实，入口职责仍需源码确认"
+    "entrypoint_formula": "按常见入口文件名与 bin/cmd/cli/app 路径定位候选；路径存在是事实，入口职责仍需源码确认",
+    "edge_formula": "在分区代表源码中静态匹配 import/use/mod/require 与相对路径引用；只绘制两端都能定位的边"
   },
   "facts": {
-    "description": "Rust CLI for Volcengine Ark Agent/Coding Plan endpoints.",
-    "tracked_files": 10,
+    "description": "bash export ARKAPIKEY=... ark-cli list --kind text ark-cli env --tool anthropic --model doubao-seed-2.0-code ark-cli chat --model doubao-seed-2.0-code --message \"hello\" ark-cli image --model doubao-seedream-5.0-lite --prompt \"a clean icon\" ark-cli video create --model doubao-seedance-2.0-fast --prompt \"a sunrise time-lapse\" ark-cli tts --text \"hello\" --dryru",
+    "tracked_files": 17,
     "source_files": 4,
     "source_nonblank_lines": 1433,
     "languages": [
@@ -55,7 +57,7 @@
     "components": [
       {
         "id": "component-1",
-        "label": "src/lib",
+        "label": "CLI 核心实现（src/lib.rs）",
         "role": "核心语义",
         "file_count": 1,
         "nonblank_lines": 856,
@@ -65,7 +67,7 @@
       },
       {
         "id": "component-2",
-        "label": "src/lib_test",
+        "label": "集成测试（src/lib_test.rs）",
         "role": "核心语义",
         "file_count": 1,
         "nonblank_lines": 559,
@@ -75,22 +77,12 @@
       },
       {
         "id": "component-3",
-        "label": "build",
+        "label": "构建脚本（build.rs）",
         "role": "实现分区",
         "file_count": 1,
         "nonblank_lines": 12,
         "examples": [
           "build.rs"
-        ]
-      },
-      {
-        "id": "component-4",
-        "label": "src/main",
-        "role": "入口与编排",
-        "file_count": 1,
-        "nonblank_lines": 6,
-        "examples": [
-          "src/main.rs"
         ]
       }
     ],
@@ -112,6 +104,20 @@
       "ark-cli list --kind text",
       "ark-cli env --tool anthropic --model doubao-seed-2.0-code",
       "ark-cli chat --model doubao-seed-2.0-code --message \"hello\""
+    ],
+    "recent_commits": [
+      {
+        "date": "2026-08-29",
+        "subject": "docs: 更新架构文档"
+      },
+      {
+        "date": "2026-08-26",
+        "subject": "docs: relocate architecture infographic to docs/infographics"
+      },
+      {
+        "date": "2026-08-23",
+        "subject": "docs: add architecture visualizations"
+      }
     ],
     "test_files": 1,
     "test_examples": [
