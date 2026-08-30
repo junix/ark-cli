@@ -1,0 +1,7 @@
+{
+  "component_labels": {
+    "lib": "CLI 核心实现（src/lib.rs）",
+    "lib_test": "集成测试（src/lib_test.rs）",
+    "build": "构建脚本（build.rs）"
+  }
+}
