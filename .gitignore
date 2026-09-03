@@ -1,2 +1,5 @@
 /target/
-
+# --- appended by gitignore-sweep on 2026-09-03 ---
+Cargo.lock
+**/*.rs.bk
+*.pdb
