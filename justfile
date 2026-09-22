@@ -16,9 +16,7 @@ test:
 
 install: build
     mkdir -p "{{ install_bin }}"
-    cp "{{ target_dir }}/release/ark-cli" "{{ install_bin }}/ark-cli"
-    xattr -c "{{ install_bin }}/ark-cli" 2>/dev/null || true
-    codesign -f -s - "{{ install_bin }}/ark-cli" 2>/dev/null || true
+    @set -eu; dest="{{ install_bin }}/ark-cli"; mkdir -p "$(dirname "$dest")"; tmp="$(mktemp "{{ install_bin }}/.ark-cli.XXXXXX")"; trap 'rm -f "$tmp"' EXIT; cp "{{ target_dir }}/release/ark-cli" "$tmp"; chmod 755 "$tmp"; if [ "$(uname -s)" = "Darwin" ]; then xattr -c "$tmp" 2>/dev/null || true; codesign --force --sign - "$tmp"; fi; mv -f "$tmp" "$dest"
     echo "Installed ark-cli to {{ install_bin }}/ark-cli"
 
 # Remove local build caches and documentation intermediates.
