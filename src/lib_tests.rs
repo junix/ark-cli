@@ -8,8 +8,7 @@ static TEMP_COUNTER: AtomicU64 = AtomicU64::new(0);
 /// (extension included, e.g. `"data.json"`) so dispatch-by-extension works.
 fn temp_file(filename_with_ext: &str, content: &str) -> PathBuf {
     let n = TEMP_COUNTER.fetch_add(1, Ordering::SeqCst);
-    let path = std::env::temp_dir()
-        .join(format!("ark-cli-test-{n}-{filename_with_ext}"));
+    let path = std::env::temp_dir().join(format!("ark-cli-test-{n}-{filename_with_ext}"));
     fs::write(&path, content).expect("write temp file");
     path
 }
@@ -55,15 +54,9 @@ fn endpoint_url_table_covers_every_path_endpoint() {
             Endpoint::AnthropicMessages,
             "https://x.example/p/v1/messages",
         ),
-        (
-            Endpoint::OpenaiChat,
-            "https://x.example/p/chat/completions",
-        ),
+        (Endpoint::OpenaiChat, "https://x.example/p/chat/completions"),
         (Endpoint::Embeddings, "https://x.example/p/embeddings"),
-        (
-            Endpoint::Images,
-            "https://x.example/p/images/generations",
-        ),
+        (Endpoint::Images, "https://x.example/p/images/generations"),
         (
             Endpoint::VideoTasks,
             "https://x.example/p/contents/generations/tasks",
@@ -105,7 +98,10 @@ fn endpoint_url_tts_endpoints_ignore_base_and_task_id() {
     ] {
         assert_eq!(endpoint_url(custom_base, endpoint, None), expected);
         // task_id must also be ignored for these endpoints.
-        assert_eq!(endpoint_url(custom_base, endpoint, Some("ignored")), expected);
+        assert_eq!(
+            endpoint_url(custom_base, endpoint, Some("ignored")),
+            expected
+        );
     }
 }
 
@@ -132,9 +128,7 @@ fn auto_rejection_is_case_insensitive_across_kinds() {
     ] {
         let error = validate_model(name, kind).unwrap_err();
         assert!(
-            error
-                .to_string()
-                .starts_with("Auto mode is not supported"),
+            error.to_string().starts_with("Auto mode is not supported"),
             "expected Auto rejection for {name:?}"
         );
     }
@@ -202,7 +196,12 @@ fn anthropic_chat_body_uses_messages_shape() {
     // Harden: pin the message content too, not just the role.
     assert_eq!(body["messages"][0]["content"], "hello");
     // Harden: pin the exact top-level shape.
-    let mut keys: Vec<&str> = body.as_object().unwrap().keys().map(|s| s.as_str()).collect();
+    let mut keys: Vec<&str> = body
+        .as_object()
+        .unwrap()
+        .keys()
+        .map(|s| s.as_str())
+        .collect();
     keys.sort();
     assert_eq!(keys, vec!["max_tokens", "messages", "model", "system"]);
 }
@@ -219,7 +218,12 @@ fn anthropic_chat_body_omits_system_when_none() {
     )
     .unwrap();
     assert!(body.get("system").is_none());
-    let mut keys: Vec<&str> = body.as_object().unwrap().keys().map(|s| s.as_str()).collect();
+    let mut keys: Vec<&str> = body
+        .as_object()
+        .unwrap()
+        .keys()
+        .map(|s| s.as_str())
+        .collect();
     keys.sort();
     assert_eq!(keys, vec!["max_tokens", "messages", "model"]);
 }
@@ -296,10 +300,7 @@ fn openai_chat_body_rejects_non_array_messages_json_when_system_present() {
         8,
     )
     .unwrap_err();
-    assert_eq!(
-        error.to_string(),
-        "messages_json must decode to an array"
-    );
+    assert_eq!(error.to_string(), "messages_json must decode to an array");
 }
 
 // ---------------------------------------------------------------------------
@@ -547,7 +548,10 @@ fn resolve_model_falls_back_to_config_model() {
         model: Some("doubao-seed-2.0-code".to_string()),
         ..Default::default()
     };
-    assert_eq!(resolve_model(None, &config, ModelKind::Text).unwrap(), "doubao-seed-2.0-code");
+    assert_eq!(
+        resolve_model(None, &config, ModelKind::Text).unwrap(),
+        "doubao-seed-2.0-code"
+    );
 }
 
 #[test]
