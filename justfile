@@ -16,8 +16,8 @@ test:
 
 install: build
     mkdir -p "{{ install_bin }}"
-    @set -eu; dest="{{ install_bin }}/ark-cli"; mkdir -p "$(dirname "$dest")"; tmp="$(mktemp "{{ install_bin }}/.ark-cli.XXXXXX")"; trap 'rm -f "$tmp"' EXIT; cp "{{ target_dir }}/release/ark-cli" "$tmp"; chmod 755 "$tmp"; if [ "$(uname -s)" = "Darwin" ]; then xattr -c "$tmp" 2>/dev/null || true; codesign --force --sign - "$tmp"; fi; mv -f "$tmp" "$dest"
-    echo "Installed ark-cli to {{ install_bin }}/ark-cli"
+    @set -eu; dest="{{ install_bin }}/ark-cli-rs"; mkdir -p "$(dirname "$dest")"; tmp="$(mktemp "{{ install_bin }}/.ark-cli-rs.XXXXXX")"; trap 'rm -f "$tmp"' EXIT; cp "{{ target_dir }}/release/ark-cli" "$tmp"; chmod 755 "$tmp"; if [ "$(uname -s)" = "Darwin" ]; then xattr -c "$tmp" 2>/dev/null || true; codesign --force --sign - "$tmp"; fi; mv -f "$tmp" "$dest"
+    echo "Installed ark-cli-rs to {{ install_bin }}/ark-cli-rs"
 
 # Remove local build caches and documentation intermediates.
 clean: clean-artifacts
