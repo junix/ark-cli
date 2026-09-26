@@ -6,6 +6,9 @@ arch_suffix := if arch() == "aarch64" { "arm64" } else { "x86" }
 install_bin := env("SYNC_BIN_DIR", home_directory() / "sync" / (os_suffix + "-" + arch_suffix + "-bin"))
 target_dir := env("CARGO_TARGET_DIR", justfile_directory() / "target")
 
+# Build stamp for --version (ADR-1168): "g<short sha>", plus ".dirty" when the tree is dirty.
+export PM_BUILD_SHA := "g" + `git rev-parse --short HEAD` + `(git diff --quiet && git diff --cached --quiet) >/dev/null 2>&1 || printf .dirty`
+
 default: build
 
 build:

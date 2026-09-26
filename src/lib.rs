@@ -16,10 +16,19 @@ const TTS_BIDIRECTIONAL_WS_URL: &str = "wss://openspeech.bytedance.com/api/v3/pl
 const TTS_UNIDIRECTIONAL_WS_URL: &str =
     "wss://openspeech.bytedance.com/api/v3/plan/tts/unidirectional/stream";
 
+/// CLI version: manifest semver plus the build stamp (`+g<sha>[.dirty]`) when
+/// the justfile exports `PM_BUILD_SHA` at build time (ADR-1168).
+fn version() -> String {
+    match option_env!("PM_BUILD_SHA") {
+        Some(stamp) => format!("{}+{}", env!("CARGO_PKG_VERSION"), stamp),
+        None => env!("CARGO_PKG_VERSION").into(),
+    }
+}
+
 #[derive(Debug, Clone, Parser)]
 #[command(
     name = "ark-cli",
-    version,
+    version = version(),
     about = "Volcengine Ark Agent/Coding Plan CLI",
     after_help = concat!("Source: ", env!("PROJECT_SOURCE_PATH"))
 )]

@@ -615,3 +615,13 @@ fn resolve_resource_id_rejects_invalid_id() {
         "unsupported Speech model/resource id: bad-tts-id"
     );
 }
+
+#[test]
+fn version_contains_manifest_version_and_stamp_when_built_via_just() {
+    let version = version();
+    assert!(version.starts_with(env!("CARGO_PKG_VERSION")));
+    match option_env!("PM_BUILD_SHA") {
+        Some(stamp) => assert_eq!(version, format!("{}+{}", env!("CARGO_PKG_VERSION"), stamp)),
+        None => assert_eq!(version, env!("CARGO_PKG_VERSION")),
+    }
+}
